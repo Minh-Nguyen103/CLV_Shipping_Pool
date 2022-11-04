@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sqls>
+	<querys>
+		<query name="CodeMgmtDBDAOCheckDuplMasterRSQL">
+			<desc><![CDATA[Check duplicated cd id master]]></desc>
+			<sql><![CDATA[
+SELECT 
+	INTG_CD_ID
+FROM COM_INTG_CD
+WHERE INTG_CD_ID IN (
+#foreach($intgcd in ${intgList})
+	#if($velocityCount < $intgList.size()) '$intgcd' , #else '$intgcd' #end
+#end
+)
+			]]></sql>
+			<params>
+			</params>
+		</query>
+	</querys>
+</sqls>

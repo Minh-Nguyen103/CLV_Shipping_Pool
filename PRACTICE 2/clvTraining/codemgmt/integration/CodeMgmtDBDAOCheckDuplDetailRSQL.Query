@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sqls>
+	<querys>
+		<query name="CodeMgmtDBDAOCheckDuplDetailRSQL">
+			<desc><![CDATA[Check duplicated cd id detail]]></desc>
+			<sql><![CDATA[
+SELECT 
+	INTG_CD_ID
+,	INTG_CD_VAL_CTNT
+FROM COM_INTG_CD_DTL
+WHERE INTG_CD_ID IN (
+#foreach($intgcd in ${intgList})
+	#if($velocityCount < $intgList.size()) '$intgcd' , #else '$intgcd' #end
+#end
+) AND INTG_CD_VAL_CTNT IN (
+#foreach($intgval in ${intgValList})
+	#if($velocityCount < $intgValList.size()) '$intgval' , #else '$intgval' #end
+#end
+)			]]></sql>
+			<params>
+			</params>
+		</query>
+	</querys>
+</sqls>

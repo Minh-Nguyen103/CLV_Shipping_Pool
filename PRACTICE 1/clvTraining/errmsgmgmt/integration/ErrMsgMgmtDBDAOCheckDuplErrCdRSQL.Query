@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sqls>
+	<querys>
+		<query name="ErrMsgMgmtDBDAOCheckDuplErrCdRSQL">
+			<desc><![CDATA[Check Duplicated Error Message Code]]></desc>
+			<sql><![CDATA[
+SELECT 
+	ERR_MSG_CD
+FROM COM_ERR_MSG
+WHERE ERR_MSG_CD IN (
+#foreach($errcd in ${errMsgCdList})
+	 #if($velocityCount < $errMsgCdList.size()) '$errcd', #else '$errcd' #end
+#end
+)			]]></sql>
+			<params>
+			</params>
+		</query>
+	</querys>
+</sqls>

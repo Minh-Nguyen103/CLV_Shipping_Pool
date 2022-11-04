@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sqls>
+	<querys>
+		<query name="CarrierMgmtDBDAOSearchRLaneRSQL">
+			<desc><![CDATA[Seach Rev Lane]]></desc>
+			<sql><![CDATA[
+SELECT 
+	VSL_SLAN_CD as rlane_cd
+
+FROM MDM_REV_LANE
+			]]></sql>
+			<params>
+			</params>
+		</query>
+	</querys>
+</sqls>
